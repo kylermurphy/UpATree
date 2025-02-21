@@ -1,0 +1,12 @@
+; keys for loading
+[DEFAULT]
+
+sc2id = 3584949
+
+[1v1]
+; server is one of us | eu | kr | tw
+server = eu 
+; 1=US, 2=EU, 3=KO and TW, 5=CN
+region = 2 
+; typically 1
+realm = 1 

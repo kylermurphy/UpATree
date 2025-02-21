@@ -6,9 +6,6 @@ import io
 
 from PIL import Image
 
-import sc2_stats
-
-u_dat = sc2_stats.c_dat
 
 def bliz_token(c_id, 
                s_id, 
