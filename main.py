@@ -10,3 +10,5 @@ img = Image.open(io.BytesIO(r.content))
 
 img.save('test.jpg')
 
+
+
