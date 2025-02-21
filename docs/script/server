@@ -1,6 +1,3 @@
 #!/bin/sh
-# Start the local preview server
-
-set -e
 
 bundle exec jekyll serve
