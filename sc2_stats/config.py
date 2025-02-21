@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 import configparser
-import os
 import sc2_stats
 
 from pathlib import Path
