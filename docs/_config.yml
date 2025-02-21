@@ -17,8 +17,4 @@ github:
 title: Jekyll Theme Primer
 description: Primer is a Jekyll theme for GitHub Pages
 
-remote_theme: pages-themes/primer@v0.6.0
-plugins:
-  - jekyll-seo-tag
-  - jekyll-sitemap
-  - jekyll-remote-theme # add this line to the plugins list if you already have one
+theme: jekyll-theme-primer
