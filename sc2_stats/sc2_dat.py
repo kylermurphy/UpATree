@@ -145,13 +145,13 @@ def sc2_match(reg,
     
     return mhs
 
-ladders = ['1v1','2v2','3v3','4v4']
+# ladders = ['1v1','2v2','3v3','4v4']
 
-player_lad = [s for s in ladders if s in u_dat.keys()]
+# player_lad = [s for s in ladders if s in u_dat.keys()]
 
-tk = bliz_token(u_dat['c_id'],u_dat['s_id'])
+# tk = bliz_token(u_dat['c_id'],u_dat['s_id'])
 
-tk_header = {'Authorization': f'Bearer {tk}'}
+# tk_header = {'Authorization': f'Bearer {tk}'}
 
 # pp = sc2_profile(u_dat['1v1']['server'],
 #                  u_dat['1v1']['region'],
@@ -159,12 +159,12 @@ tk_header = {'Authorization': f'Bearer {tk}'}
 #                  u_dat['1v1']['sc2id'],
 #                  tk_header) 
 
-ll = sc2_ladsum(u_dat['1v1']['server'],
-                 u_dat['1v1']['region'],
-                 u_dat['1v1']['realm'],
-                 u_dat['1v1']['sc2id'],
-                 tk_header,
-                 ladder=player_lad[0]) 
+# ll = sc2_ladsum(u_dat['1v1']['server'],
+#                  u_dat['1v1']['region'],
+#                  u_dat['1v1']['realm'],
+#                  u_dat['1v1']['sc2id'],
+#                  tk_header,
+#                  ladder=player_lad[0]) 
 
 # lspc = sc2_ladspc(u_dat['1v1']['server'],
 #                  u_dat['1v1']['region'],
@@ -173,9 +173,9 @@ ll = sc2_ladsum(u_dat['1v1']['server'],
 #                  ll['ladder_id'],
 #                  tk_header)
 
-mhs = sc2_match(u_dat['1v1']['server'],
-                 u_dat['1v1']['region'],
-                 u_dat['1v1']['realm'],
-                 u_dat['1v1']['sc2id'],
-                 tk_header)
+# mhs = sc2_match(u_dat['1v1']['server'],
+#                  u_dat['1v1']['region'],
+#                  u_dat['1v1']['realm'],
+#                  u_dat['1v1']['sc2id'],
+#                  tk_header)
 
