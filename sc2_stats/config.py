@@ -52,8 +52,6 @@ def load_config():
     config_dic = {}
     
     # get the data that's required
-    config_dic['c_id'] = configf['DEFAULT']['c_id']
-    config_dic['s_id'] = configf['DEFAULT']['s_id']
     config_dic['sc2id'] = configf['DEFAULT']['sc2id']
     
     # get the rest of the file
