@@ -15,7 +15,8 @@ img = Image.open(io.BytesIO(r.content))
 img.save('test.jpg')
 
 with open("file.txt", "a") as f:
-    f.write(f"Writing a log file {strftime("%Y-%m-%d %H:%M:%S", gmtime())}.")
+    t = strftime("%Y-%m-%d %H:%M:%S", gmtime())
+    f.write(f"Writing a log file {t}.")
 
 
 
