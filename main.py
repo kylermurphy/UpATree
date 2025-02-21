@@ -13,7 +13,7 @@ sc2_stats.c_dat['s_id'] = os.environ['S_ID']
 
 u_dat = sc2_stats.c_dat
 
-tk = bliz_token(u_dat['c_id'],u_dat['s_id'])
+tk = sc2_stats.bliz_token(u_dat['c_id'],u_dat['s_id'])
 
 imgUrl = 'https://static.starcraft2.com/starport/bda9a860-ca36-11ec-b5ea-4bed4e205979/portraits/3-19.jpg'
 r = requests.get(imgUrl, stream=True)
