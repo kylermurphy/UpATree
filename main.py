@@ -75,7 +75,7 @@ day_df = pd.concat([win_d,loss_d], axis=1)
 day_df.plot.bar(stacked=True, color={'W':'dodgerblue', 'L':'darkorange'}).get_figure().savefig('./docs/assets/daily.png')
 
 #gm hist plot
-gm_hist = pd.concat([df.tail(10)['Win?'].reset_index(drop=True).rename('All Games'),
+gm_hist = pd.concat([df.tail(10)['Win?'].reset_index(drop=True).rename('All'),
                      df[df['Race'] == 'Terran'].tail(10)['Win?'].reset_index(drop=True).rename('Terran'),
                      df[df['Race'] == 'Zerg'].tail(10)['Win?'].reset_index(drop=True).rename('Zerg'),
                      df[df['Race'] == 'Protoss'].tail(10)['Win?'].reset_index(drop=True).rename('Protoss')],
@@ -91,7 +91,7 @@ heatmap.set(ylabel='Vs')
 
 w_patch = mpatches.Patch(color='dodgerblue', label='Win')
 l_patch = mpatches.Patch(color='turquoise', label='Loss')
-ax.legend(handles=[w_patch,l_patch], fancybox=True, bbox_to_anchor=(1.2, 1), borderaxespad=0)
+ax.legend(handles=[w_patch,l_patch], fancybox=True)
 
 fig.savefig('./docs/assets/gm_hist.png')
 
