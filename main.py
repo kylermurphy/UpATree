@@ -89,6 +89,19 @@ t1 = pd.DataFrame([df.shape[0],
 # create nemesis table
 nem = df[df['ΔMMR']>0].groupby('Opponent').sum()['ΔMMR'].sort_values(ascending=False)[0:6]
 
+# win rate table
+r_wrt = pd.concat([df.groupby('Race')['Win?'].sum().rename('Wins'),
+                   df.groupby('Race')['Win?'].count().rename('Total'),
+                   df[df['ΔMMR']>0].groupby('Race')['ΔMMR'].sum().rename('MMR Gained'),
+                   df[df['ΔMMR']<0].groupby('Race')['ΔMMR'].sum().rename('MMR Lost')]
+                   ,axis=1)
+
+r_wrt['Losses'] = r_wrt['Total']-r_wrt['Wins']
+r_wrt['Win Rate (%)'] = 100*r_wrt['Wins']/r_wrt['Total']
+
+r_wrt = r_wrt[['Wins','Losses','Total','Win Rate (%)', 'MMR Gained', 'MMR Lost']]
+r_wrt['MMR Lost'] = r_wrt['MMR Lost'].abs() 
+
 # create main page
 index = f'''---
 layout: home
@@ -98,7 +111,13 @@ layout: home
 
 {t1.to_markdown()}
 
+## Nemeses
+
 {nem.to_markdown()}
+
+## Games by Race
+
+{r_wrt.to_markdown()}
 
 ![Sal's MMR](./assets/MMR.png)
 
