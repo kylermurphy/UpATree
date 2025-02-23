@@ -35,6 +35,8 @@ layout: home
 | Terran  |     55 |       93 |     148 |        37.1622 |         1081 |       1767 |
 | Zerg    |    155 |      107 |     262 |        59.1603 |         3141 |       2134 |
 
+![Games by Race](./assets/gm_hist.png)
+
 ![Sal's MMR](./assets/MMR.png)
 
 ![Daily Stats](./assets/daily.png)
