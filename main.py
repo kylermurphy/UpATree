@@ -4,6 +4,8 @@ from PIL import Image
 import io
 import os
 
+import pandas as pd
+
 from time import gmtime, strftime
 
 import sc2_stats
