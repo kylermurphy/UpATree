@@ -68,7 +68,7 @@ loss_d = df[df['Win?']==0].groupby('Day')['Win?'].count()
 loss_d.name='L'
 
 day_df = pd.concat([win_d,loss_d], axis=1)
-day_df.plot.bar(stacked=True, color={'W':'dodgerblue', 'L':'darkorange'}).savefig('./docs/assets/daily.png')
+day_df.plot.bar(stacked=True, color={'W':'dodgerblue', 'L':'darkorange'}).get_figure().savefig('./docs/assets/daily.png')
 
 # create first table
 t1 = pd.DataFrame([df.shape[0],
