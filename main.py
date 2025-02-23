@@ -70,6 +70,27 @@ loss_d.name='L'
 day_df = pd.concat([win_d,loss_d], axis=1)
 day_df.plot.bar(stacked=True, color={'W':'dodgerblue', 'L':'darkorange'}).get_figure().savefig('./docs/assets/daily.png')
 
+#gm hist plot
+gm_hist = pd.concat([df.tail(10)['Win?'].reset_index(drop=True).rename('All Games'),
+                     df[df['Race'] == 'Terran'].tail(10)['Win?'].reset_index(drop=True).rename('Terran'),
+                     df[df['Race'] == 'Zerg'].tail(10)['Win?'].reset_index(drop=True).rename('Zerg'),
+                     df[df['Race'] == 'Protoss'].tail(10)['Win?'].reset_index(drop=True).rename('Protoss')],
+                    axis=1)
+
+
+fig, ax = plt.subplots(figsize = (6, 2)) 
+heatmap = sns.heatmap(gm_hist.transpose(), xticklabels=np.arange(0,10)-10,
+                      cmap=['turquoise','dodgerblue'], vmin=-0.4, vmax=1.4, linewidth=.5, cbar=False)
+heatmap.set_yticklabels(heatmap.get_yticklabels(), rotation=0)
+heatmap.set(xlabel='Last Played Game')
+heatmap.set(ylabel='Vs')
+
+w_patch = mpatches.Patch(color='dodgerblue', label='Win')
+l_patch = mpatches.Patch(color='turquoise', label='Loss')
+ax.legend(handles=[w_patch,l_patch], fancybox=True, bbox_to_anchor=(1.2, 1), borderaxespad=0)
+
+fig.savefig('./docs/assets/gm_hist.png')
+
 # create first table
 t1 = pd.DataFrame([df.shape[0],
                    df.loc[df['ΔMMR'] > 0,"ΔMMR"].sum(),
@@ -118,6 +139,8 @@ layout: home
 ## Games by Race
 
 {r_wrt.to_markdown()}
+
+![Games by Race](./assets/gm_hist.png)
 
 ![Sal's MMR](./assets/MMR.png)
 
