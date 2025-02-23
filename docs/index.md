@@ -27,3 +27,5 @@ layout: home
 
 ![Sal's MMR](./assets/MMR.png)
 
+![Daily Stats](./docs/assets/daily.png)
+
