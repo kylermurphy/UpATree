@@ -138,7 +138,7 @@ def sc2_match(reg,
     
     mhs = pd.DataFrame(p_res.json()['matches'])
     mhs = mhs[mhs['type']==gtype]
-    mhs['DateTime'] = pd.to_datetime(mhs['date'],unit='s')
+    mhs['DateTime'] = pd.to_datetime(mhs['date'],unit='s',utc=True)
     
     return mhs
 
