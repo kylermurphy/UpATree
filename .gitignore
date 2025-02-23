@@ -170,3 +170,5 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 
+# ignore testing notebook
+sc2.ipynb
