@@ -81,8 +81,7 @@ t1 = pd.DataFrame([df.shape[0],
 nem = df[df['ΔMMR']>0].groupby('Opponent').sum()['ΔMMR'].sort_values(ascending=False)[0:6]
 
 # create main page
-index = f'''
----
+index = f'''---
 layout: home
 ---
 
