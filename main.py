@@ -95,9 +95,11 @@ layout: home
 ![Sal's MMR](./assets/MMR.png)
 
 '''
+with open('./docs/index.md', "r") as f:
+    data = f.read()
 
-with open('./docs/index.md') as id:
-    id.write(index)
+with open('./docs/index.md',  "w") as f:
+    f.write(index)
 
 with open("log.txt", "a") as f:
     t = strftime("%Y-%m-%d %H:%M:%S", gmtime())
