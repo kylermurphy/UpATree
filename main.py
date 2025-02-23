@@ -61,6 +61,15 @@ df = pd.read_csv(sheet, usecols=[8,9,10,11,12,13,14,15,16,17,18,19,20,21,22])
 # create MMR plot and save it to assets
 df.plot(y="Sal's MMR").get_figure().savefig('./docs/assets/MMR.png')
 
+# Daily Stats
+win_d = df.groupby('Day')['Win?'].sum()
+win_d.name='W'
+loss_d = df[df['Win?']==0].groupby('Day')['Win?'].count()
+loss_d.name='L'
+
+day_df = pd.concat([win_d,loss_d], axis=1)
+day_df.plot.bar(stacked=True, color={'W':'dodgerblue', 'L':'darkorange'}).savefig('./docs/assets/daily.png')
+
 # create first table
 t1 = pd.DataFrame([df.shape[0],
                    df.loc[df['ΔMMR'] > 0,"ΔMMR"].sum(),
@@ -92,6 +101,8 @@ layout: home
 {nem.to_markdown()}
 
 ![Sal's MMR](./assets/MMR.png)
+
+![Daily Stats](./docs/assets/daily.png)
 
 '''
 with open('./docs/index.md', "r") as f:
