@@ -8,6 +8,18 @@
 layout: home
 ---
 
-## UpATree
+## UpATree Ladder Stats
 
-Need to get figures here. 
+|                      |   Stats |
+|:---------------------|--------:|
+| Matches Played       |     675 |
+| MMR Gained           |    6576 |
+| MMR lost             |    7033 |
+| Max MMR              |    4876 |
+| Min MMR              |    4437 |
+| Longest Win Streak   |       7 |
+| Longest Loss Streak  |       9 |
+| Highest MMR Beaten   |    6219 |
+| Lowest MMR Thrown to |    2956 |
+
+![Sal's MMR](./assets/MMR.png)
