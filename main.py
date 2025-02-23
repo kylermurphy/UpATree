@@ -50,13 +50,52 @@ mhs = sc2_stats.sc2_match(u_dat['1v1']['server'],
                  u_dat['1v1']['sc2id'],
                  tk_header)
 
-imgUrl = 'https://static.starcraft2.com/starport/bda9a860-ca36-11ec-b5ea-4bed4e205979/portraits/3-19.jpg'
-r = requests.get(imgUrl, stream=True)
-img = Image.open(io.BytesIO(r.content))
+# load subathon google sheet
+# and read the game columns
+sheet = 'https://docs.google.com/spreadsheets/d/17faRtX9jtmRXzynJ9QJBIiR_2vlsT7e8k3F526NDA7k/export?format=csv&gid=710961897#gid=710961897'
 
-img.save('test.jpg')
+df = pd.read_csv(sheet, usecols=[8,9,10,11,12,13,14,15,16,17,18,19,20,21,22])
 
+# create MMR plot and save it to assets
+df.plot(y="Sal's MMR").get_figure().savefig('./docs/assets/MMR.png')
 
+# create first table
+t1 = pd.DataFrame([df.shape[0],
+                   df.loc[df['ΔMMR'] > 0,"ΔMMR"].sum(),
+                   abs(df.loc[df['ΔMMR'] < 0,"ΔMMR"].sum()),
+                   df['Sal\'s MMR'].max(),
+                   df['Sal\'s MMR'].min(),
+                   df['Win Streak'].max(),
+                   df['Loss Streak'].max(),
+                   df['MMR'].max(),
+                   df['MMR'].min(),
+                   ], 
+                   columns=['Stats'],
+                   index=['Matches Played','MMR Gained', 'MMR lost', 'Max MMR', 'Min MMR',
+                          'Longest Win Streak', 'Longest Loss Streak', 'Highest MMR Beaten',
+                          'Lowest MMR Thrown to'])
+
+# create nemesis table
+nem = df[df['ΔMMR']>0].groupby('Opponent').sum()['ΔMMR'].sort_values(ascending=False)[0:6]
+
+# create main page
+index = f'''
+---
+layout: home
+---
+
+## UpATree Ladder Stats
+
+{t1.to_markdown()}
+
+{nem.to_markdown()}
+
+![Sal's MMR](./assets/MMR.png)
+
+'''
+
+with open('./docs/index.md') as id:
+    id.write(index)
 
 with open("log.txt", "a") as f:
     t = strftime("%Y-%m-%d %H:%M:%S", gmtime())
