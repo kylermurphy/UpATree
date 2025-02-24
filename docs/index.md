@@ -6,34 +6,38 @@ layout: home
 
 |                      |   Stats |
 |:---------------------|--------:|
-| Matches Played       |     675 |
-| MMR Gained           |    6576 |
-| MMR lost             |    7033 |
-| Max MMR              |    4876 |
-| Min MMR              |    4437 |
-| Longest Win Streak   |       7 |
-| Longest Loss Streak  |       9 |
+| Matches Played       |     937 |
+| MMR Gained           |   25173 |
+| MMR lost             |   25145 |
+| Max MMR              |    4846 |
+| Min MMR              |    4486 |
+| Longest Win Streak   |       9 |
+| Longest Loss Streak  |       8 |
 | Highest MMR Beaten   |    6219 |
-| Lowest MMR Thrown to |    2956 |
+| Lowest MMR Thrown to |       0 |
 
 ## Nemeses
 
-| Opponent     |   ΔMMR |
-|:-------------|-------:|
-| IIIIIIIIIIII |    236 |
-| gaschem      |    196 |
-| MissCrimson  |    194 |
-| Remonitions  |    146 |
-| Seigneur     |    142 |
-| theglml      |    129 |
+| Opponent    |   ΔMMR |
+|:------------|-------:|
+| Kallari     |    270 |
+| Hirisch     |    249 |
+| gaschem     |    203 |
+| OriOn       |    157 |
+| theglml     |    153 |
+| Archaleon   |    149 |
+| GhostDragon |    122 |
+| fat0n       |    108 |
+| Kyoshi      |    101 |
+| BaumesBaum  |     99 |
 
 ## Games by Race
 
 | Race    |   Wins |   Losses |   Total |   Win Rate (%) |   MMR Gained |   MMR Lost |
 |:--------|-------:|---------:|--------:|---------------:|-------------:|-----------:|
-| Protoss |    110 |      155 |     265 |        41.5094 |         2354 |       3132 |
-| Terran  |     55 |       93 |     148 |        37.1622 |         1081 |       1767 |
-| Zerg    |    155 |      107 |     262 |        59.1603 |         3141 |       2134 |
+| Protoss |    173 |      210 |     383 |        45.1697 |         3174 |       3478 |
+| Terran  |     86 |      124 |     210 |        40.9524 |         2149 |       1653 |
+| Zerg    |    195 |      148 |     343 |        56.8513 |         3161 |       3100 |
 
 ![Games by Race](./assets/gm_hist.png)
 
