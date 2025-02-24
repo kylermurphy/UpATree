@@ -6,15 +6,15 @@ layout: home
 
 |                      |   Stats |
 |:---------------------|--------:|
-| Matches Played       |     923 |
-| MMR Gained           |   25059 |
-| MMR lost             |   25050 |
+| Matches Played       |     924 |
+| MMR Gained           |   24593 |
+| MMR lost             |    8823 |
 | Max MMR              |    4846 |
 | Min MMR              |    4486 |
 | Longest Win Streak   |       9 |
 | Longest Loss Streak  |       8 |
 | Highest MMR Beaten   |    6219 |
-| Lowest MMR Thrown to |       0 |
+| Lowest MMR Thrown to |    2956 |
 
 ## Nemeses
 
@@ -37,7 +37,7 @@ layout: home
 |:--------|-------:|---------:|--------:|---------------:|-------------:|-----------:|
 | Protoss |    167 |      210 |     377 |        44.2971 |         3107 |       3469 |
 | Terran  |     86 |      122 |     208 |        41.3462 |         2168 |       1598 |
-| Zerg    |    192 |      145 |     337 |        56.9733 |         3095 |       3069 |
+| Zerg    |    193 |      145 |     338 |        57.1006 |         3095 |       3091 |
 
 ![Games by Race](./assets/gm_hist.png)
 
