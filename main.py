@@ -56,7 +56,13 @@ def generate_streak_info(df, column='winner_UpATree'):
 
 tk_res = requests.post('https://api.sc2replaystats.com/account/login', 
                        data = {'email_address':E_ID, 'password':RPLY_ID})
-tk = tk_res.json()['token']
+try:
+    tk = tk_res.json()['token']
+except:
+    tk='x'
+    with open("log.txt", "a") as f:
+        f.write(f"Not Getting Token. Error {tk.status_code}\n")
+
 tk_header = {'Authorization': f'{tk}'}
 
 
