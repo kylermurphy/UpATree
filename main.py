@@ -61,17 +61,19 @@ try:
 except:
     tk='x'
     with open("log.txt", "a") as f:
-        f.write(f"Not Getting Token. Error {tk.status_code}\n")
+        f.write(f"Not Getting Token. Error {tk_res.status_code}\n")
 
 tk_header = {'Authorization': f'{tk}'}
 
 
 # make initial request
 res = requests.get('https://api.sc2replaystats.com/player/1384133/replays/62', headers=tk_header)
+npages = 0
 
 # determine the number of pages we are looking at
-npages = res.json()['total_items'] // res.json()['items_per_page'] 
-if res.json()['total_items'] % res.json()['items_per_page'] > 1: npages = npages + 1
+if res.status_code==200
+    npages = res.json()['total_items'] // res.json()['items_per_page'] 
+    if res.json()['total_items'] % res.json()['items_per_page'] > 1: npages = npages + 1
 
 # load the last page and put data into dataframe
 p_res = requests.get('https://api.sc2replaystats.com/player/1384133/replays/62', 
