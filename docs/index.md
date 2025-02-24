@@ -6,11 +6,11 @@ layout: home
 
 |                      |   Stats |
 |:---------------------|--------:|
-| Matches Played       |     927 |
-| MMR Gained           |    8852 |
-| MMR lost             |    9264 |
+| Matches Played       |     930 |
+| MMR Gained           |    8877 |
+| MMR lost             |    9289 |
 | Max MMR              |    4846 |
-| Min MMR              |    4486 |
+| Min MMR              |    4478 |
 | Longest Win Streak   |       9 |
 | Longest Loss Streak  |       8 |
 | Highest MMR Beaten   |    6219 |
@@ -28,15 +28,15 @@ layout: home
 | Archaleon   |    149 |
 | GhostDragon |    122 |
 | Kyoshi      |    101 |
-| igor        |     99 |
 | BaumesBaum  |     99 |
+| igor        |     99 |
 
 ## Games by Race
 
 | Race    |   Wins |   Losses |   Total |   Win Rate (%) |   MMR Gained |   MMR Lost |
 |:--------|-------:|---------:|--------:|---------------:|-------------:|-----------:|
-| Protoss |    167 |      210 |     377 |        44.2971 |         3107 |       3469 |
-| Terran  |     86 |      123 |     209 |        41.1483 |         2168 |       1624 |
+| Protoss |    167 |      210 |     377 |        44.2971 |         3107 |       3483 |
+| Terran  |     88 |      124 |     212 |        41.5094 |         2221 |       1624 |
 | Zerg    |    193 |      147 |     340 |        56.7647 |         3111 |       3116 |
 
 ![Games by Race](./assets/gm_hist.png)
