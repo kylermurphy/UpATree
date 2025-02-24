@@ -12,58 +12,40 @@ import matplotlib.patches as mpatches
 
 from time import gmtime, strftime
 
-import sc2_stats
+def generate_streak_info(df, column='winner_UpATree'):
+    data = df[column].to_frame()
+    data['start_of_streak'] = data[column].ne(data[column].shift())
+    data['streak_id'] = data.start_of_streak.cumsum()
+    data['streak_counter'] = data.groupby('streak_id').cumcount() + 1
+    shots_with_streaks = pd.concat([df, data['streak_counter']], axis=1)
+    return shots_with_streaks
 
-sc2_stats.c_dat['c_id'] = os.environ['C_ID']
-sc2_stats.c_dat['s_id'] = os.environ['S_ID']
-
-u_dat = sc2_stats.c_dat
-
-tk = sc2_stats.bliz_token(u_dat['c_id'],u_dat['s_id'])
-
-
-ladders = ['1v1','2v2','3v3','4v4']
-
-player_lad = [s for s in ladders if s in u_dat.keys()]
-
-tk = sc2_stats.bliz_token(u_dat['c_id'],u_dat['s_id'])
-
-tk_header = {'Authorization': f'Bearer {tk}'}
-
-pp = sc2_stats.sc2_profile(u_dat['1v1']['server'],
-                 u_dat['1v1']['region'],
-                 u_dat['1v1']['realm'],
-                 u_dat['1v1']['sc2id'],
-                 tk_header) 
-
-ll = sc2_stats.sc2_ladsum(u_dat['1v1']['server'],
-                 u_dat['1v1']['region'],
-                 u_dat['1v1']['realm'],
-                 u_dat['1v1']['sc2id'],
-                 tk_header,
-                 ladder=player_lad[0]) 
-
-lspc = sc2_stats.sc2_ladspc(u_dat['1v1']['server'],
-                 u_dat['1v1']['region'],
-                 u_dat['1v1']['realm'],
-                 u_dat['1v1']['sc2id'],
-                 ll['ladder_id'],
-                 tk_header)
-
-mhs = sc2_stats.sc2_match(u_dat['1v1']['server'],
-                 u_dat['1v1']['region'],
-                 u_dat['1v1']['realm'],
-                 u_dat['1v1']['sc2id'],
-                 tk_header)
-
-# load subathon google sheet
+# load subathon data that was retrieved from sc2replaystats
 # and read the game columns
-sheet = 'https://docs.google.com/spreadsheets/d/17faRtX9jtmRXzynJ9QJBIiR_2vlsT7e8k3F526NDA7k/export?format=csv&gid=710961897#gid=710961897'
+sheet = 'UpATree.csv.gz'
 
-df = pd.read_csv(sheet, usecols=[8,9,10,11,12,13,14,15,16,17,18,19,20,21,22])
+game_df = pd.read_csv('UpATree.csv.gz')
+game_df['DateTime'] = pd.to_datetime(game_df['replay_date'].str[:19])
+game_df['DOY'] = game_df['DateTime'].apply(lambda x: x.dayofyear)
+game_df['dMMR'] = game_df['mmr_UpATree'].diff(periods=1)
+game_df = generate_streak_info(game_df)
+
+game_df['Win Streak'] = game_df['streak_counter']
+game_df.loc[game_df['winner_UpATree']==0,'Win Streak']=-1
+
+game_df['Loss Streak'] = game_df['streak_counter']
+game_df.loc[game_df['winner_UpATree']==1,'Loss Streak']=-1
+
+
+# drop outliers of mmr
+q_low = game_df["mmr_UpATree"].quantile(0.05)
+q_hi  = game_df["mmr_UpATree"].quantile(0.99)
+mmr_p = (game_df["mmr_UpATree"] < q_hi) & (game_df["mmr_UpATree"] > q_low)
 
 # create MMR plot and save it to assets
-df.plot(y="Sal's MMR").get_figure().savefig('./docs/assets/MMR.png')
+game_df[mmr_p].plot(y='mmr_UpATree',
+                    label="Sal's MMR", 
+                    xlabel='Game', ylabel='MMR').get_figure().savefig('./docs/assets/MMR.png')
 
 # Daily Stats
 win_d = df.groupby('Day')['Win?'].sum()
@@ -75,10 +57,10 @@ day_df = pd.concat([win_d,loss_d], axis=1)
 day_df.plot.bar(stacked=True, color={'W':'dodgerblue', 'L':'darkorange'}).get_figure().savefig('./docs/assets/daily.png')
 
 #gm hist plot
-gm_hist = pd.concat([df.tail(10)['Win?'].reset_index(drop=True).rename('All'),
-                     df[df['Race'] == 'Terran'].tail(10)['Win?'].reset_index(drop=True).rename('Terran'),
-                     df[df['Race'] == 'Zerg'].tail(10)['Win?'].reset_index(drop=True).rename('Zerg'),
-                     df[df['Race'] == 'Protoss'].tail(10)['Win?'].reset_index(drop=True).rename('Protoss')],
+gm_hist = pd.concat([game_df.tail(10)['winner_UpATree'].reset_index(drop=True).rename('All'),
+                     game_df[game_df['race_Opp'] == 'T'].tail(10)['winner_UpATree'].reset_index(drop=True).rename('Terran'),
+                     game_df[game_df['race_Opp'] == 'Z'].tail(10)['winner_UpATree'].reset_index(drop=True).rename('Zerg'),
+                     game_df[game_df['race_Opp'] == 'P'].tail(10)['winner_UpATree'].reset_index(drop=True).rename('Protoss')],
                     axis=1)
 
 
@@ -93,18 +75,19 @@ w_patch = mpatches.Patch(color='dodgerblue', label='Win')
 l_patch = mpatches.Patch(color='turquoise', label='Loss')
 ax.legend(handles=[w_patch,l_patch], fancybox=True)
 
-fig.savefig('./docs/assets/gm_hist.png')
+fig.tight_layout()
+fig.savefig('./docs/assets/gm_hist.png', bbox_inches='tight')
 
 # create first table
-t1 = pd.DataFrame([df.shape[0],
-                   df.loc[df['ΔMMR'] > 0,"ΔMMR"].sum(),
-                   abs(df.loc[df['ΔMMR'] < 0,"ΔMMR"].sum()),
-                   df['Sal\'s MMR'].max(),
-                   df['Sal\'s MMR'].min(),
-                   df['Win Streak'].max(),
-                   df['Loss Streak'].max(),
-                   df['MMR'].max(),
-                   df['MMR'].min(),
+t1 = pd.DataFrame([game_df.shape[0],
+                   game_df.loc[game_df['dMMR'] > 0,"dMMR"].sum(),
+                   abs(game_df.loc[game_df['dMMR'] < 0,"dMMR"].sum()),
+                   game_df.loc[mmr_p,'mmr_UpATree'].max(),
+                   game_df.loc[mmr_p,'mmr_UpATree'].min(),
+                   game_df['Win Streak'].max(),
+                   game_df['Loss Streak'].max(),
+                   game_df['mmr_Opp'].max(),
+                   game_df['mmr_Opp'].min(),
                    ], 
                    columns=['Stats'],
                    index=['Matches Played','MMR Gained', 'MMR lost', 'Max MMR', 'Min MMR',
@@ -112,13 +95,15 @@ t1 = pd.DataFrame([df.shape[0],
                           'Lowest MMR Thrown to'])
 
 # create nemesis table
-nem = df[df['ΔMMR']>0].groupby('Opponent').sum()['ΔMMR'].sort_values(ascending=False)[0:6]
+nem = game_df[(game_df['dMMR']<0) & (game_df['dMMR']>-100)].groupby('id_Opp')['dMMR'].sum()
+nem = nem.rename(index='ΔMMR').rename_axis('Opponent')
+nem = nem.sort_values()[0:10].abs().to_markdown()
 
 # win rate table
-r_wrt = pd.concat([df.groupby('Race')['Win?'].sum().rename('Wins'),
-                   df.groupby('Race')['Win?'].count().rename('Total'),
-                   df[df['ΔMMR']>0].groupby('Race')['ΔMMR'].sum().rename('MMR Gained'),
-                   df[df['ΔMMR']<0].groupby('Race')['ΔMMR'].sum().rename('MMR Lost')]
+r_wrt = pd.concat([game_df.groupby('race_Opp')['winner_UpATree'].sum().rename('Wins'),
+                   game_df.groupby('race_Opp')['winner_UpATree'].count().rename('Total'),
+                   game_df[(game_df['dMMR']>0) & (game_df['dMMR']<100) & (mmr_p)].groupby('race_Opp')['dMMR'].sum().rename('MMR Gained'),
+                   game_df[(game_df['dMMR']<0) & (game_df['dMMR']>-100) & (mmr_p)].groupby('race_Opp')['dMMR'].sum().rename('MMR Lost')]
                    ,axis=1)
 
 r_wrt['Losses'] = r_wrt['Total']-r_wrt['Wins']
@@ -126,6 +111,9 @@ r_wrt['Win Rate (%)'] = 100*r_wrt['Wins']/r_wrt['Total']
 
 r_wrt = r_wrt[['Wins','Losses','Total','Win Rate (%)', 'MMR Gained', 'MMR Lost']]
 r_wrt['MMR Lost'] = r_wrt['MMR Lost'].abs() 
+
+r_wrt = r_wrt.rename(index={'P':'Protoss', 'T':'Terran', 'Z':'Zerg'})
+r_wrt.index.names = ['Race']
 
 # create main page
 index = f'''---
