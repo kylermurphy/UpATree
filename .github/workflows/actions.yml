@@ -27,7 +27,7 @@ jobs:
         env:
           C_ID: ${{ secrets.C_ID }}
           S_ID: ${{ secrets.S_ID }}
-          E_ID: ${{ secrets.E_ID }}
+          E_ID: ${{ secrets.EM_ID }}
           RPLY_ID: ${{ secrets.RPLY_ID }}
         run: python main.py
 
