@@ -31,3 +31,5 @@ Writing a log file 2025-02-24 16:14:07.
 Writing a log file 2025-02-24 18:14:58.
 Writing a log file 2025-02-24 18:21:31.
 Writing a log file 2025-02-24 18:30:41.
+Not Getting Token. Error 404
+Writing a log file 2025-02-24 19:16:18.
