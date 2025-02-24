@@ -87,7 +87,7 @@ if p_res.status_code == 200:
     game_df = game_df.drop(columns='Unnamed: 0')
     game_df = pd.concat([game_df,gm_df], ignore_index=True)
     game_df = game_df.drop_duplicates(subset='replay_url')
-    game_df.to_csv('UpATree.csv.gz', mode='a',compression='gzip')
+    game_df.to_csv('UpATree.csv.gz',compression='gzip')
 
 sys.exit()
 # load subathon data that was retrieved from sc2replaystats
