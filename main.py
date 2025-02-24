@@ -59,6 +59,7 @@ tk_res = requests.post('https://api.sc2replaystats.com/account/login',
 tk = tk_res.json()['token']
 tk_header = {'Authorization': f'{tk}'}
 
+
 # make initial request
 res = requests.get('https://api.sc2replaystats.com/player/1384133/replays/62', headers=tk_header)
 
