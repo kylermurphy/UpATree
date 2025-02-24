@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import requests
+import sys
 from PIL import Image
 import io
 import os
@@ -88,7 +89,7 @@ if p_res.status_code == 200:
     game_df = game_df.drop_duplicates(subset='replay_url')
     game_df.to_csv('UpATree.csv.gz', mode='a',compression='gzip')
 
-
+sys.exit()
 # load subathon data that was retrieved from sc2replaystats
 # and read the game columns
 sheet = 'UpATree.csv.gz'
