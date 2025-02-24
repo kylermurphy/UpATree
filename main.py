@@ -156,6 +156,23 @@ ax.legend(handles=[w_patch,l_patch], fancybox=True)
 fig.tight_layout()
 fig.savefig('./docs/assets/gm_hist.png', bbox_inches='tight')
 
+# wrt per race as a function of time
+tw = game_df[game_df['race_Opp'] == 'T'].groupby(pd.cut(game_df['game_length'],np.arange(0,31*60,60)))['winner_UpATree'].sum().rename('Terran Wins')
+tg = game_df[game_df['race_Opp'] == 'T'].groupby(pd.cut(game_df['game_length'],np.arange(0,31*60,60)))['winner_UpATree'].count().rename('Terran Games')
+
+pw = game_df[game_df['race_Opp'] == 'P'].groupby(pd.cut(game_df['game_length'],np.arange(0,31*60,60)))['winner_UpATree'].sum().rename('Protoss Wins')
+pg = game_df[game_df['race_Opp'] == 'P'].groupby(pd.cut(game_df['game_length'],np.arange(0,31*60,60)))['winner_UpATree'].count().rename('Protoss Games')
+
+zw = game_df[game_df['race_Opp'] == 'Z'].groupby(pd.cut(game_df['game_length'],np.arange(0,31*60,60)))['winner_UpATree'].sum().rename('Zerg Wins')
+zg = game_df[game_df['race_Opp'] == 'Z'].groupby(pd.cut(game_df['game_length'],np.arange(0,31*60,60)))['winner_UpATree'].count().rename('Zerg Games')
+
+gm_ln_wrt = pd.concat([tw,tg,pw,pg,zw,zg], axis=1).reset_index(drop=True)
+gm_ln_wrt['Z wrt'] = gm_ln_wrt['Zerg Wins']/gm_ln_wrt['Zerg Games']
+gm_ln_wrt['P wrt'] = gm_ln_wrt['Protoss Wins']/gm_ln_wrt['Protoss Games']
+gm_ln_wrt['T wrt'] = gm_ln_wrt['Terran Wins']/gm_ln_wrt['Terran Games']
+gm_ln_wrt.rolling(3).mean().plot(y=['Z wrt','P wrt', 'T wrt'], 
+                                 ylabel='Win Rate',xlabel='Game Duration').get_figure().savefig('./docs/assets/r_wrt.png')
+
 # create first table
 t1 = pd.DataFrame([game_df.shape[0],
                    game_df.loc[game_df['dMMR'] > 0,"dMMR"].sum(),
@@ -215,6 +232,8 @@ layout: home
 ![Sal's MMR](./assets/MMR.png)
 
 ![Daily Stats](./assets/daily.png)
+
+![Win Rate vs Time](./assets/r_wrt.png)
 
 '''
 with open('./docs/index.md', "r") as f:
