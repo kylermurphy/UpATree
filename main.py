@@ -97,7 +97,7 @@ t1 = pd.DataFrame([game_df.shape[0],
 # create nemesis table
 nem = game_df[(game_df['dMMR']<0) & (game_df['dMMR']>-100)].groupby('id_Opp')['dMMR'].sum()
 nem = nem.rename(index='ΔMMR').rename_axis('Opponent')
-nem = nem.sort_values()[0:10].abs().to_markdown()
+nem = nem.sort_values()[0:10].abs()
 
 # win rate table
 r_wrt = pd.concat([game_df.groupby('race_Opp')['winner_UpATree'].sum().rename('Wins'),
