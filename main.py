@@ -48,13 +48,13 @@ game_df[mmr_p].plot(y='mmr_UpATree',
                     xlabel='Game', ylabel='MMR').get_figure().savefig('./docs/assets/MMR.png')
 
 # Daily Stats
-win_d = df.groupby('Day')['Win?'].sum()
+win_d = game_df.groupby('DOY')['winner_UpATree'].sum()
 win_d.name='W'
-loss_d = df[df['Win?']==0].groupby('Day')['Win?'].count()
+loss_d = game_df[game_df['winner_UpATree']==0].groupby('DOY')['winner_UpATree'].count()
 loss_d.name='L'
 
 day_df = pd.concat([win_d,loss_d], axis=1)
-day_df.plot.bar(stacked=True, color={'W':'dodgerblue', 'L':'darkorange'}).get_figure().savefig('./docs/assets/daily.png')
+day_df.plot.bar(stacked=True, color={'W':'dodgerblue', 'L':'turquoise'})
 
 #gm hist plot
 gm_hist = pd.concat([game_df.tail(10)['winner_UpATree'].reset_index(drop=True).rename('All'),
