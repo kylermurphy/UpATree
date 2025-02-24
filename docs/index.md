@@ -6,9 +6,9 @@ layout: home
 
 |                      |   Stats |
 |:---------------------|--------:|
-| Matches Played       |     925 |
+| Matches Played       |     927 |
 | MMR Gained           |    8852 |
-| MMR lost             |    9213 |
+| MMR lost             |    9264 |
 | Max MMR              |    4846 |
 | Min MMR              |    4486 |
 | Longest Win Streak   |       9 |
@@ -22,7 +22,7 @@ layout: home
 |:------------|-------:|
 | Kallari     |    270 |
 | Hirisch     |    249 |
-| gaschem     |    203 |
+| gaschem     |    228 |
 | OriOn       |    157 |
 | theglml     |    153 |
 | Archaleon   |    149 |
@@ -36,8 +36,8 @@ layout: home
 | Race    |   Wins |   Losses |   Total |   Win Rate (%) |   MMR Gained |   MMR Lost |
 |:--------|-------:|---------:|--------:|---------------:|-------------:|-----------:|
 | Protoss |    167 |      210 |     377 |        44.2971 |         3107 |       3469 |
-| Terran  |     86 |      122 |     208 |        41.3462 |         2168 |       1598 |
-| Zerg    |    193 |      146 |     339 |        56.9322 |         3111 |       3091 |
+| Terran  |     86 |      123 |     209 |        41.1483 |         2168 |       1624 |
+| Zerg    |    193 |      147 |     340 |        56.7647 |         3111 |       3116 |
 
 ![Games by Race](./assets/gm_hist.png)
 
