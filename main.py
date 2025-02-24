@@ -71,7 +71,7 @@ res = requests.get('https://api.sc2replaystats.com/player/1384133/replays/62', h
 npages = 0
 
 # determine the number of pages we are looking at
-if res.status_code==200
+if res.status_code==200:
     npages = res.json()['total_items'] // res.json()['items_per_page'] 
     if res.json()['total_items'] % res.json()['items_per_page'] > 1: npages = npages + 1
 
