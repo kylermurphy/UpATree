@@ -89,18 +89,21 @@ if p_res.status_code == 200:
     game_df = game_df.drop_duplicates(subset='replay_url')
     game_df.to_csv('UpATree.csv.gz',compression='gzip')
 
-sys.exit()
+
 # load subathon data that was retrieved from sc2replaystats
 # and read the game columns
 sheet = 'UpATree.csv.gz'
 
 game_df = pd.read_csv('UpATree.csv.gz')
+game_df = game_df.drop_duplicates(subset='replay_url')
 try:
     game_df['DateTime'] = pd.to_datetime(game_df['replay_date'].str[:19])
     game_df['DOY'] = game_df['DateTime'].apply(lambda x: x.dayofyear)
 except:
-    game_df['DateTime'] = pd.to_datetime('2011-01-01')
-    game_df['DOY'] = game_df['game_length']
+    with open("log.txt", "a") as f:
+        f.write(f"Exiting on DateTime\n")
+
+
 game_df['dMMR'] = game_df['mmr_UpATree'].diff(periods=1)
 game_df = generate_streak_info(game_df)
 
