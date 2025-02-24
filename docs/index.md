@@ -6,9 +6,9 @@ layout: home
 
 |                      |   Stats |
 |:---------------------|--------:|
-| Matches Played       |     921 |
-| MMR Gained           |   25030 |
-| MMR lost             |   25026 |
+| Matches Played       |     923 |
+| MMR Gained           |   25059 |
+| MMR lost             |   25050 |
 | Max MMR              |    4846 |
 | Min MMR              |    4486 |
 | Longest Win Streak   |       9 |
@@ -35,7 +35,7 @@ layout: home
 
 | Race    |   Wins |   Losses |   Total |   Win Rate (%) |   MMR Gained |   MMR Lost |
 |:--------|-------:|---------:|--------:|---------------:|-------------:|-----------:|
-| Protoss |    167 |      208 |     375 |        44.5333 |         3078 |       3445 |
+| Protoss |    167 |      210 |     377 |        44.2971 |         3107 |       3469 |
 | Terran  |     86 |      122 |     208 |        41.3462 |         2168 |       1598 |
 | Zerg    |    192 |      145 |     337 |        56.9733 |         3095 |       3069 |
 
@@ -44,4 +44,6 @@ layout: home
 ![Sal's MMR](./assets/MMR.png)
 
 ![Daily Stats](./assets/daily.png)
+
+![Win Rate vs Time](./assets/r_wrt.png)
 
