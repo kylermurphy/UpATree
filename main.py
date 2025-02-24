@@ -62,6 +62,7 @@ except:
     tk='x'
     with open("log.txt", "a") as f:
         f.write(f"Not Getting Token. Error {tk_res.status_code}\n")
+        f.write(f"Not Getting Token. Error {E_ID}\n")
 
 tk_header = {'Authorization': f'{tk}'}
 
