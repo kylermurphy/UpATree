@@ -54,7 +54,8 @@ loss_d = game_df[game_df['winner_UpATree']==0].groupby('DOY')['winner_UpATree'].
 loss_d.name='L'
 
 day_df = pd.concat([win_d,loss_d], axis=1)
-day_df.plot.bar(stacked=True, color={'W':'dodgerblue', 'L':'turquoise'})
+day_df.plot.bar(stacked=True, 
+                color={'W':'dodgerblue', 'L':'turquoise'}).get_figure().savefig('./docs/assets/daily.png')
 
 #gm hist plot
 gm_hist = pd.concat([game_df.tail(10)['winner_UpATree'].reset_index(drop=True).rename('All'),
