@@ -97,7 +97,7 @@ game_df = pd.read_csv('UpATree.csv.gz')
 try:
     game_df['DateTime'] = pd.to_datetime(game_df['replay_date'].str[:19])
     game_df['DOY'] = game_df['DateTime'].apply(lambda x: x.dayofyear)
-else:
+except:
     game_df['DateTime'] = pd.to_datetime('2011-01-01')
     game_df['DOY'] = game_df['game_length']
 game_df['dMMR'] = game_df['mmr_UpATree'].diff(periods=1)
