@@ -89,7 +89,7 @@ if p_res.status_code == 200:
     game_df = game_df.drop_duplicates(subset='replay_url')
     game_df.to_csv('UpATree.csv.gz',compression='gzip')
 
-
+sys.exit()
 # load subathon data that was retrieved from sc2replaystats
 # and read the game columns
 sheet = 'UpATree.csv.gz'
@@ -102,7 +102,7 @@ try:
 except:
     with open("log.txt", "a") as f:
         f.write(f"Exiting on DateTime\n")
-
+    sys.exit()
 
 game_df['dMMR'] = game_df['mmr_UpATree'].diff(periods=1)
 game_df = generate_streak_info(game_df)
