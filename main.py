@@ -175,8 +175,8 @@ gm_ln_wrt.rolling(3).mean().plot(y=['Z wrt','P wrt', 'T wrt'],
 
 # create first table
 t1 = pd.DataFrame([game_df.shape[0],
-                   game_df.loc[(game_df['dMMR'] > 0) & (mmr_p),"dMMR"].sum(),
-                   abs(game_df.loc[(game_df['dMMR'] < 0) & (mmr_p),"dMMR"].sum()),
+                   game_df.loc[(game_df['dMMR'] > 0) & (game_df['dMMR'] < 100),"dMMR"].sum(),
+                   abs(game_df.loc[(game_df['dMMR'] < 0) & (game_df['dMMR'] > -100),"dMMR"].sum()),
                    game_df.loc[mmr_p,'mmr_UpATree'].max(),
                    game_df.loc[mmr_p,'mmr_UpATree'].min(),
                    game_df['Win Streak'].max(),
