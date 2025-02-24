@@ -172,3 +172,4 @@ cython_debug/
 
 # ignore testing notebook
 sc2.ipynb
+sc2replaystats.ipynb
