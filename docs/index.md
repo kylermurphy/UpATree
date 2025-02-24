@@ -7,8 +7,8 @@ layout: home
 |                      |   Stats |
 |:---------------------|--------:|
 | Matches Played       |     924 |
-| MMR Gained           |   24593 |
-| MMR lost             |    8823 |
+| MMR Gained           |    8836 |
+| MMR lost             |    9213 |
 | Max MMR              |    4846 |
 | Min MMR              |    4486 |
 | Longest Win Streak   |       9 |
