@@ -297,4 +297,11 @@ table {
     -webkit-overflow-scrolling: touch;
             -ms-overflow-style: -ms-autohiding-scrollbar;
   }
+
+  @media screen and (max-width: 800px) {
+    .column {
+      width: 100%;
+    }
+  }
+
 }
