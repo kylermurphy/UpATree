@@ -211,8 +211,8 @@ r_wrt['MMR Lost'] = r_wrt['MMR Lost'].abs().to_frame()
 r_wrt = r_wrt.rename(index={'P':'Protoss', 'T':'Terran', 'Z':'Zerg'})
 r_wrt.index.names = ['Race']
 
-stat_tab = re.sub("class=\"dataframe", "", t1.to_html(border=0))
-nem_tab = re.sub("class=\"dataframe", "", nem.to_html(border=0))
+stat_tab = re.sub(' class="dataframe"', '', t1.to_html(border=0))
+nem_tab = re.sub(' class="dataframe"', '', nem.to_html(border=0))
 
 # create main page
 index = f'''---
