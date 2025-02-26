@@ -209,6 +209,9 @@ pre {
     max-width: calc(#{$content-width} - (#{$spacing-unit} * 2));
     padding-right: $spacing-unit;
     padding-left: $spacing-unit;
+    .column {
+      width: 100%;
+    }
   }
 }
 
@@ -298,10 +301,5 @@ table {
             -ms-overflow-style: -ms-autohiding-scrollbar;
   }
 
-  @media (max-width: 900px) {
-    .column {
-      width: 100%;
-    }
-  }
 
 }
