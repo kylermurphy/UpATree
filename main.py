@@ -4,6 +4,7 @@ import sys
 from PIL import Image
 import io
 import os
+import re
 
 import pandas as pd
 import numpy as np
@@ -218,11 +219,11 @@ layout: home
 <div class="row">
     <div class="column">
         <h2>UpATree Ladder Stats</h2>
-        {t1.to_html()}
+        {re.sub("class=\"dataframe", "", t1.to_html(border=0))}
     </div>
     <div class="column">
         <h2>Nemeses</h2>
-        {t1.to_html()}
+        {re.sub("class=\"dataframe", "", nem.to_html(border=0))}
     </div>
 </div>
 
