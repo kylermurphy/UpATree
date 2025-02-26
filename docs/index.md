@@ -2,9 +2,12 @@
 layout: home
 ---
 
-## UpATree Ladder Stats
+<div class="row">
+    <div class="column">
 
-|                      |   Stats |
+        ## UpATree Ladder Stats
+
+        |                      |   Stats |
 |:---------------------|--------:|
 | Matches Played       |     970 |
 | MMR Gained           |    9319 |
@@ -15,10 +18,12 @@ layout: home
 | Longest Loss Streak  |       8 |
 | Highest MMR Beaten   |    6219 |
 | Lowest MMR Thrown to |    2956 |
+    </div>
 
-## Nemeses
+    <div class"=column">
+        ## Nemeses
 
-| Opponent    |   ΔMMR |
+        | Opponent    |   ΔMMR |
 |:------------|-------:|
 | Kallari     |    270 |
 | gaschem     |    255 |
@@ -30,6 +35,8 @@ layout: home
 | Kyoshi      |    101 |
 | BaumesBaum  |     99 |
 | igor        |     99 |
+    </div>
+</div>
 
 ## Games by Race
 
