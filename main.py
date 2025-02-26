@@ -219,7 +219,7 @@ layout: home
 
 <div width="50%">
 
-{t1.to_markdown()}
+{t1.to_html()}
 
 </div>
 
