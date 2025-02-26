@@ -218,15 +218,15 @@ layout: home
 <div class="row">
     <div class="column">
 
-        ## UpATree Ladder Stats
+        <h2>UpATree Ladder Stats</h2>
 
-        {t1.to_markdown()}
+        {t1.to_html()}
     </div>
 
     <div class"=column">
-        ## Nemeses
+        <h2>Nemeses</h2>
 
-        {nem.to_markdown()}
+        {nem.to_html()}
     </div>
 </div>
 
