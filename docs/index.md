@@ -4,7 +4,7 @@ layout: home
 
 ## UpATree Ladder Stats
 
-<div width="50%">
+<div style="width:auto">
 
 <table border="1" class="dataframe">
   <thead>
