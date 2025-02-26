@@ -217,15 +217,11 @@ layout: home
 
 <div class="row">
     <div class="column">
-
         <h2>UpATree Ladder Stats</h2>
-
         {t1.to_html()}
     </div>
-
-    <div class"=column">
+    <div class="column">
         <h2>Nemeses</h2>
-
         {t1.to_html()}
     </div>
 </div>
