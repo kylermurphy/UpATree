@@ -4,4 +4,4 @@ title: About
 permalink: /about/
 ---
 
-Learning on how to do new things.
+Learning how to do new things.
