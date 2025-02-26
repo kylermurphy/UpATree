@@ -58,45 +58,53 @@ layout: home
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Stats</th>
+      <th>ΔMMR</th>
+    </tr>
+    <tr>
+      <th>Opponent</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>Matches Played</th>
-      <td>972.0</td>
+      <th>Kallari</th>
+      <td>270.0</td>
     </tr>
     <tr>
-      <th>MMR Gained</th>
-      <td>9337.0</td>
+      <th>gaschem</th>
+      <td>255.0</td>
     </tr>
     <tr>
-      <th>MMR lost</th>
-      <td>9602.0</td>
+      <th>Hirisch</th>
+      <td>249.0</td>
     </tr>
     <tr>
-      <th>Max MMR</th>
-      <td>4846.0</td>
+      <th>OriOn</th>
+      <td>157.0</td>
     </tr>
     <tr>
-      <th>Min MMR</th>
-      <td>4458.0</td>
+      <th>theglml</th>
+      <td>153.0</td>
     </tr>
     <tr>
-      <th>Longest Win Streak</th>
-      <td>9.0</td>
+      <th>Archaleon</th>
+      <td>149.0</td>
     </tr>
     <tr>
-      <th>Longest Loss Streak</th>
-      <td>8.0</td>
+      <th>GhostDragon</th>
+      <td>122.0</td>
     </tr>
     <tr>
-      <th>Highest MMR Beaten</th>
-      <td>6219.0</td>
+      <th>Kyoshi</th>
+      <td>101.0</td>
     </tr>
     <tr>
-      <th>Lowest MMR Thrown to</th>
-      <td>2956.0</td>
+      <th>BaumesBaum</th>
+      <td>99.0</td>
+    </tr>
+    <tr>
+      <th>igor</th>
+      <td>99.0</td>
     </tr>
   </tbody>
 </table>
