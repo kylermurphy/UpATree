@@ -226,7 +226,7 @@ layout: home
     </div>
     <div class="column">
         <h2>Nemeses</h2>
-        {nem_tab}
+        {stat_tab}
     </div>
 </div>
 
