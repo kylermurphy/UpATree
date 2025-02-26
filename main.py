@@ -192,7 +192,7 @@ t1 = pd.DataFrame([game_df.shape[0],
 # create nemesis table
 nem = game_df[(game_df['dMMR']<0) & (game_df['dMMR']>-100)].groupby('id_Opp')['dMMR'].sum()
 nem = nem.rename(index='ΔMMR').rename_axis('Opponent')
-nem = nem.sort_values()[0:10].abs()
+nem = nem.sort_values()[0:10].abs().to_frame()
 
 # win rate table
 r_wrt = pd.concat([game_df.groupby('race_Opp')['winner_UpATree'].sum().rename('Wins'),
@@ -205,7 +205,7 @@ r_wrt['Losses'] = r_wrt['Total']-r_wrt['Wins']
 r_wrt['Win Rate (%)'] = 100*r_wrt['Wins']/r_wrt['Total']
 
 r_wrt = r_wrt[['Wins','Losses','Total','Win Rate (%)', 'MMR Gained', 'MMR Lost']]
-r_wrt['MMR Lost'] = r_wrt['MMR Lost'].abs() 
+r_wrt['MMR Lost'] = r_wrt['MMR Lost'].abs().to_frame() 
 
 r_wrt = r_wrt.rename(index={'P':'Protoss', 'T':'Terran', 'Z':'Zerg'})
 r_wrt.index.names = ['Race']
@@ -222,7 +222,7 @@ layout: home
     </div>
     <div class="column">
         <h2>Nemeses</h2>
-        {t1.to_html()}
+        {nem.to_html()}
     </div>
 </div>
 
