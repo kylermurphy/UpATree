@@ -222,11 +222,11 @@ layout: home
 <div class="row">
     <div class="column">
         <h2>UpATree Ladder Stats</h2>
-        {stat_table}
+        {stat_tab}
     </div>
     <div class="column">
         <h2>Nemeses</h2>
-        {nem_table}
+        {nem_tab}
     </div>
 </div>
 
