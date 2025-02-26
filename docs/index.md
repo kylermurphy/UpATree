@@ -4,56 +4,17 @@ layout: home
 
 ## UpATree Ladder Stats
 
-<div style="width:auto">
-
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Stats</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Matches Played</th>
-      <td>958.0</td>
-    </tr>
-    <tr>
-      <th>MMR Gained</th>
-      <td>9247.0</td>
-    </tr>
-    <tr>
-      <th>MMR lost</th>
-      <td>9463.0</td>
-    </tr>
-    <tr>
-      <th>Max MMR</th>
-      <td>4846.0</td>
-    </tr>
-    <tr>
-      <th>Min MMR</th>
-      <td>4456.0</td>
-    </tr>
-    <tr>
-      <th>Longest Win Streak</th>
-      <td>9.0</td>
-    </tr>
-    <tr>
-      <th>Longest Loss Streak</th>
-      <td>8.0</td>
-    </tr>
-    <tr>
-      <th>Highest MMR Beaten</th>
-      <td>6219.0</td>
-    </tr>
-    <tr>
-      <th>Lowest MMR Thrown to</th>
-      <td>2956.0</td>
-    </tr>
-  </tbody>
-</table>
-
-</div>
+|                      |   Stats |
+|:---------------------|--------:|
+| Matches Played       |     958 |
+| MMR Gained           |    9247 |
+| MMR lost             |    9463 |
+| Max MMR              |    4846 |
+| Min MMR              |    4456 |
+| Longest Win Streak   |       9 |
+| Longest Loss Streak  |       8 |
+| Highest MMR Beaten   |    6219 |
+| Lowest MMR Thrown to |    2956 |
 
 ## Nemeses
 
