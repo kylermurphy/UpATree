@@ -217,7 +217,7 @@ layout: home
 
 ## UpATree Ladder Stats
 
-<div width="50%">
+<div style="width:auto">
 
 {t1.to_html()}
 
