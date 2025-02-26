@@ -4,9 +4,7 @@ layout: home
 
 <div class="row">
     <div class="column">
-
         <h2>UpATree Ladder Stats</h2>
-
         <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -54,10 +52,8 @@ layout: home
   </tbody>
 </table>
     </div>
-
-    <div class"=column">
+    <div class="column">
         <h2>Nemeses</h2>
-
         <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
