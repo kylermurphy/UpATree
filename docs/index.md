@@ -5,7 +5,7 @@ layout: home
 <div class="row">
     <div class="column">
         <h2>UpATree Ladder Stats</h2>
-        <table ">
+        <table>
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -54,7 +54,7 @@ layout: home
     </div>
     <div class="column">
         <h2>Nemeses</h2>
-        <table ">
+        <table>
   <thead>
     <tr style="text-align: right;">
       <th></th>
