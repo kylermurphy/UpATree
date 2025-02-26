@@ -215,13 +215,20 @@ index = f'''---
 layout: home
 ---
 
-## UpATree Ladder Stats
+<div class="row">
+    <div class="column">
 
-{t1.to_markdown()}
+        ## UpATree Ladder Stats
 
-## Nemeses
+        {t1.to_markdown()}
+    </div>
 
-{nem.to_markdown()}
+    <div class"=column">
+        ## Nemeses
+
+        {nem.to_markdown()}
+    </div>
+</div>
 
 ## Games by Race
 
