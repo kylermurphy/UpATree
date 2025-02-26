@@ -217,11 +217,7 @@ layout: home
 
 ## UpATree Ladder Stats
 
-<div style="width:auto">
-
-{t1.to_html()}
-
-</div>
+{t1.to_markdown()}
 
 ## Nemeses
 
