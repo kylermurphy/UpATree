@@ -222,7 +222,7 @@ layout: home
     </div>
     <div class="column">
         <h2>Nemeses</h2>
-        {nem.to_html()}
+        {t1.to_html()}
     </div>
 </div>
 
