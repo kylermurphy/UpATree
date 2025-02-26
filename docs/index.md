@@ -4,6 +4,8 @@ layout: home
 
 ## UpATree Ladder Stats
 
+<div width="50%">
+
 |                      |   Stats |
 |:---------------------|--------:|
 | Matches Played       |     958 |
@@ -15,6 +17,8 @@ layout: home
 | Longest Loss Streak  |       8 |
 | Highest MMR Beaten   |    6219 |
 | Lowest MMR Thrown to |    2956 |
+
+</div>
 
 ## Nemeses
 
