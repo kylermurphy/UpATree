@@ -2,9 +2,12 @@
 layout: home
 ---
 
+<h1><img class="circular_image" src="https://static-cdn.jtvnw.net/jtv_user_pictures/672dc2fd-072c-470e-a6c5-62f37f937682-profile_image-70x70.png"/> UpATree</h1>
+
+<p> </p>
 <div class="row">
     <div class="column">
-        <h2>UpATree Ladder Stats</h2>
+        <h2> Ladder Stats</h2>
         <table>
   <thead>
     <tr style="text-align: right;">
@@ -14,40 +17,40 @@ layout: home
   </thead>
   <tbody>
     <tr>
-      <th>Matches Played</th>
-      <td>975.0</td>
+      <td>Matches Played</td>
+      <td>975</td>
     </tr>
     <tr>
-      <th>MMR Gained</th>
-      <td>9377.0</td>
+      <td>MMR Gained</td>
+      <td>9377</td>
     </tr>
     <tr>
-      <th>MMR lost</th>
-      <td>9614.0</td>
+      <td>MMR lost</td>
+      <td>9614</td>
     </tr>
     <tr>
-      <th>Max MMR</th>
-      <td>4846.0</td>
+      <td>Max MMR</td>
+      <td>4846</td>
     </tr>
     <tr>
-      <th>Min MMR</th>
-      <td>4458.0</td>
+      <td>Min MMR</td>
+      <td>4458</td>
     </tr>
     <tr>
-      <th>Longest Win Streak</th>
-      <td>9.0</td>
+      <td>Longest Win Streak</td>
+      <td>9</td>
     </tr>
     <tr>
-      <th>Longest Loss Streak</th>
-      <td>8.0</td>
+      <td>Longest Loss Streak</td>
+      <td>8</td>
     </tr>
     <tr>
-      <th>Highest MMR Beaten</th>
-      <td>6219.0</td>
+      <td>Highest MMR Beaten</td>
+      <td>6219</td>
     </tr>
     <tr>
-      <th>Lowest MMR Thrown to</th>
-      <td>2956.0</td>
+      <td>Lowest MMR Thrown to</td>
+      <td>2956</td>
     </tr>
   </tbody>
 </table>
@@ -57,54 +60,50 @@ layout: home
         <table>
   <thead>
     <tr style="text-align: right;">
-      <th></th>
-      <th>ΔMMR</th>
-    </tr>
-    <tr>
       <th>Opponent</th>
-      <th></th>
+      <th>ΔMMR</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>Kallari</th>
-      <td>270.0</td>
+      <td>Kallari</td>
+      <td>270</td>
     </tr>
     <tr>
-      <th>gaschem</th>
-      <td>255.0</td>
+      <td>gaschem</td>
+      <td>255</td>
     </tr>
     <tr>
-      <th>Hirisch</th>
-      <td>249.0</td>
+      <td>Hirisch</td>
+      <td>249</td>
     </tr>
     <tr>
-      <th>OriOn</th>
-      <td>157.0</td>
+      <td>OriOn</td>
+      <td>157</td>
     </tr>
     <tr>
-      <th>theglml</th>
-      <td>153.0</td>
+      <td>theglml</td>
+      <td>153</td>
     </tr>
     <tr>
-      <th>Archaleon</th>
-      <td>149.0</td>
+      <td>Archaleon</td>
+      <td>149</td>
     </tr>
     <tr>
-      <th>GhostDragon</th>
-      <td>122.0</td>
+      <td>GhostDragon</td>
+      <td>122</td>
     </tr>
     <tr>
-      <th>Kyoshi</th>
-      <td>101.0</td>
+      <td>Kyoshi</td>
+      <td>101</td>
     </tr>
     <tr>
-      <th>BaumesBaum</th>
-      <td>99.0</td>
+      <td>BaumesBaum</td>
+      <td>99</td>
     </tr>
     <tr>
-      <th>igor</th>
-      <td>99.0</td>
+      <td>igor</td>
+      <td>99</td>
     </tr>
   </tbody>
 </table>

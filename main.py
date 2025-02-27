@@ -11,11 +11,20 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
+import matplotlib.ticker as ticker
 
 from time import gmtime, strftime
+from aquarel import load_theme
 
-E_ID = os.environ['E_ID']
-RPLY_ID = os.environ['RPLY_ID']
+theme = load_theme("solarized_light")
+theme.set_color(figure_background_color='#fdf6e3', plot_background_color='#eee8d5')
+
+try:
+    E_ID = os.environ['E_ID']
+    RPLY_ID = os.environ['RPLY_ID']
+except:
+    E_ID = 'x'
+    RPLY_ID = 'y'
 
 def sc2replaystats_df(game_dat):
 
@@ -121,9 +130,12 @@ q_hi  = game_df["mmr_UpATree"].quantile(0.99)
 mmr_p = (game_df["mmr_UpATree"] < q_hi) & (game_df["mmr_UpATree"] > q_low)
 
 # create MMR plot and save it to assets
+theme.apply()
 game_df[mmr_p].plot(y='mmr_UpATree',
                     label="Sal's MMR", 
-                    xlabel='Game', ylabel='MMR').get_figure().savefig('./docs/assets/MMR.png')
+                    xlabel='Game', ylabel='MMR')
+theme.apply_transforms()
+plt.gcf().savefig('./docs/assets/MMR.png',bbox_inches='tight')
 
 # Daily Stats
 win_d = game_df.groupby('DOY')['winner_UpATree'].sum()
@@ -132,8 +144,12 @@ loss_d = game_df[game_df['winner_UpATree']==0].groupby('DOY')['winner_UpATree'].
 loss_d.name='L'
 
 day_df = pd.concat([win_d,loss_d], axis=1)
-day_df.plot.bar(stacked=True, 
-                color={'W':'dodgerblue', 'L':'turquoise'}).get_figure().savefig('./docs/assets/daily.png')
+day_df = day_df.reset_index()
+theme.apply()
+ax = day_df.plot.bar(x='DOY', y=['W','L'], stacked=True)
+ax.xaxis.set_major_locator(ticker.MultipleLocator(5))
+theme.apply_transforms()
+plt.gcf().savefig('./docs/assets/daily.png', bbox_inches='tight')
 
 #gm hist plot
 gm_hist = pd.concat([game_df.tail(10)['winner_UpATree'].reset_index(drop=True).rename('All'),
@@ -142,19 +158,20 @@ gm_hist = pd.concat([game_df.tail(10)['winner_UpATree'].reset_index(drop=True).r
                      game_df[game_df['race_Opp'] == 'P'].tail(10)['winner_UpATree'].reset_index(drop=True).rename('Protoss')],
                     axis=1)
 
-
+theme.apply()
 fig, ax = plt.subplots(figsize = (6, 2)) 
 heatmap = sns.heatmap(gm_hist.transpose(), xticklabels=np.arange(0,10)-10,
-                      cmap=['turquoise','dodgerblue'], vmin=-0.4, vmax=1.4, linewidth=.5, cbar=False)
+                      cmap=['#2aa198','#d33682'], vmin=-0.4, vmax=1.4, linewidth=.5, cbar=False)
 heatmap.set_yticklabels(heatmap.get_yticklabels(), rotation=0)
 heatmap.set(xlabel='Last Played Game')
 heatmap.set(ylabel='Vs')
 
-w_patch = mpatches.Patch(color='dodgerblue', label='Win')
-l_patch = mpatches.Patch(color='turquoise', label='Loss')
+w_patch = mpatches.Patch(color='#2aa198', label='Win')
+l_patch = mpatches.Patch(color='#d33682', label='Loss')
 ax.legend(handles=[w_patch,l_patch], fancybox=True)
 
 fig.tight_layout()
+theme.apply_transforms()
 fig.savefig('./docs/assets/gm_hist.png', bbox_inches='tight')
 
 # wrt per race as a function of time
@@ -171,8 +188,12 @@ gm_ln_wrt = pd.concat([tw,tg,pw,pg,zw,zg], axis=1).reset_index(drop=True)
 gm_ln_wrt['Z wrt'] = gm_ln_wrt['Zerg Wins']/gm_ln_wrt['Zerg Games']
 gm_ln_wrt['P wrt'] = gm_ln_wrt['Protoss Wins']/gm_ln_wrt['Protoss Games']
 gm_ln_wrt['T wrt'] = gm_ln_wrt['Terran Wins']/gm_ln_wrt['Terran Games']
+
+theme.apply()
 gm_ln_wrt.rolling(3).mean().plot(y=['Z wrt','P wrt', 'T wrt'], 
-                                 ylabel='Win Rate',xlabel='Game Duration').get_figure().savefig('./docs/assets/r_wrt.png')
+                                 ylabel='Win Rate',xlabel='Game Duration', xlim=[0,30])
+theme.apply_transforms()
+plt.gcf().savefig('./docs/assets/r_wrt.png', bbox_inches='tight')
 
 # create first table
 t1 = pd.DataFrame([game_df.shape[0],
@@ -189,11 +210,13 @@ t1 = pd.DataFrame([game_df.shape[0],
                    index=['Matches Played','MMR Gained', 'MMR lost', 'Max MMR', 'Min MMR',
                           'Longest Win Streak', 'Longest Loss Streak', 'Highest MMR Beaten',
                           'Lowest MMR Thrown to'])
+t1 = t1.astype('int')
 
 # create nemesis table
 nem = game_df[(game_df['dMMR']<0) & (game_df['dMMR']>-100)].groupby('id_Opp')['dMMR'].sum()
 nem = nem.rename(index='ΔMMR').rename_axis('Opponent')
 nem = nem.sort_values()[0:10].abs().to_frame()
+nem = nem.astype('int')
 
 # win rate table
 r_wrt = pd.concat([game_df.groupby('race_Opp')['winner_UpATree'].sum().rename('Wins'),
@@ -211,17 +234,20 @@ r_wrt['MMR Lost'] = r_wrt['MMR Lost'].abs().to_frame()
 r_wrt = r_wrt.rename(index={'P':'Protoss', 'T':'Terran', 'Z':'Zerg'})
 r_wrt.index.names = ['Race']
 
-stat_tab = re.sub(' class="dataframe"', '', t1.to_html(border=0))
-nem_tab = re.sub(' class="dataframe"', '', nem.to_html(border=0))
+stat_tab = re.sub(' class="dataframe"', '', t1.reset_index(names='').to_html(border=0,index=False))
+nem_tab = re.sub(' class="dataframe"', '', nem.reset_index().to_html(border=0,index=False))
 
 # create main page
 index = f'''---
 layout: home
 ---
 
+<h1><img class="circular_image" src="https://static-cdn.jtvnw.net/jtv_user_pictures/672dc2fd-072c-470e-a6c5-62f37f937682-profile_image-70x70.png"/> UpATree</h1>
+
+<p> </p>
 <div class="row">
     <div class="column">
-        <h2>UpATree Ladder Stats</h2>
+        <h2> Ladder Stats</h2>
         {stat_tab}
     </div>
     <div class="column">
@@ -246,7 +272,7 @@ layout: home
 with open('./docs/index.md', "r") as f:
     data = f.read()
 
-with open('./docs/index.md',  "w") as f:
+with open('./docs/index.md',  "w", encoding='utf-8') as f:
     f.write(index)
 
 with open("log.txt", "a") as f:

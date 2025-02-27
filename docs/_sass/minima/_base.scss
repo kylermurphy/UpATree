@@ -266,6 +266,17 @@ pre {
   display: table;
 }
 
+.circular_image {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: blue;
+  display:inline-block;
+  vertical-align:middle;
+}
+
+
 /**
  * Tables
  */
