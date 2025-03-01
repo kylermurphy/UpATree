@@ -18,15 +18,15 @@ layout: home
   <tbody>
     <tr>
       <td>Matches Played</td>
-      <td>1002</td>
+      <td>1005</td>
     </tr>
     <tr>
       <td>MMR Gained</td>
-      <td>9719</td>
+      <td>9760</td>
     </tr>
     <tr>
       <td>MMR lost</td>
-      <td>9871</td>
+      <td>9988</td>
     </tr>
     <tr>
       <td>Max MMR</td>
@@ -94,15 +94,15 @@ layout: home
       <td>122</td>
     </tr>
     <tr>
+      <td>Hunter</td>
+      <td>109</td>
+    </tr>
+    <tr>
       <td>Kyoshi</td>
       <td>101</td>
     </tr>
     <tr>
       <td>MaDFroG</td>
-      <td>99</td>
-    </tr>
-    <tr>
-      <td>BaumesBaum</td>
       <td>99</td>
     </tr>
   </tbody>
@@ -114,8 +114,8 @@ layout: home
 
 | Race    |   Wins |   Losses |   Total |   Win Rate (%) |   MMR Gained |   MMR Lost |
 |:--------|-------:|---------:|--------:|---------------:|-------------:|-----------:|
-| Protoss |    177 |      223 |     400 |        44.25   |         3287 |       3584 |
-| Terran  |    101 |      133 |     234 |        43.1624 |         2479 |       1863 |
+| Protoss |    178 |      223 |     401 |        44.389  |         3287 |       3642 |
+| Terran  |    103 |      133 |     236 |        43.6441 |         2520 |       1922 |
 | Zerg    |    212 |      155 |     367 |        57.7657 |         3324 |       3333 |
 
 ![Games by Race](./assets/gm_hist.png)
