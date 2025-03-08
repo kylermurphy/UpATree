@@ -18,7 +18,7 @@ layout: home
   <tbody>
     <tr>
       <td>Matches Played</td>
-      <td>1132</td>
+      <td>1133</td>
     </tr>
     <tr>
       <td>MMR Gained</td>
@@ -26,7 +26,7 @@ layout: home
     </tr>
     <tr>
       <td>MMR lost</td>
-      <td>11316</td>
+      <td>11329</td>
     </tr>
     <tr>
       <td>Max MMR</td>
@@ -94,12 +94,12 @@ layout: home
       <td>122</td>
     </tr>
     <tr>
-      <td>igor</td>
-      <td>118</td>
+      <td>Hunter</td>
+      <td>122</td>
     </tr>
     <tr>
-      <td>Hunter</td>
-      <td>109</td>
+      <td>igor</td>
+      <td>118</td>
     </tr>
     <tr>
       <td>Kyoshi</td>
@@ -114,7 +114,7 @@ layout: home
 
 | Race    |   Wins |   Losses |   Total |   Win Rate (%) |   MMR Gained |   MMR Lost |
 |:--------|-------:|---------:|--------:|---------------:|-------------:|-----------:|
-| Protoss |    203 |      251 |     454 |        44.7137 |         3579 |       4576 |
+| Protoss |    203 |      252 |     455 |        44.6154 |         3579 |       4589 |
 | Terran  |    120 |      159 |     279 |        43.0108 |         3056 |       2316 |
 | Zerg    |    234 |      164 |     398 |        58.794  |         3607 |       3724 |
 
