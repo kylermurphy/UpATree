@@ -18,11 +18,11 @@ layout: home
   <tbody>
     <tr>
       <td>Matches Played</td>
-      <td>1239</td>
+      <td>1240</td>
     </tr>
     <tr>
       <td>MMR Gained</td>
-      <td>11828</td>
+      <td>11857</td>
     </tr>
     <tr>
       <td>MMR lost</td>
@@ -115,7 +115,7 @@ layout: home
 | Race    |   Wins |   Losses |   Total |   Win Rate (%) |   MMR Gained |   MMR Lost |
 |:--------|-------:|---------:|--------:|---------------:|-------------:|-----------:|
 | Protoss |    218 |      275 |     493 |        44.2191 |         3843 |       4922 |
-| Terran  |    128 |      172 |     300 |        42.6667 |         3325 |       2439 |
+| Terran  |    128 |      173 |     301 |        42.5249 |         3354 |       2439 |
 | Zerg    |    250 |      183 |     433 |        57.7367 |         3895 |       4046 |
 
 ![Games by Race](./assets/gm_hist.png)
