@@ -18,15 +18,15 @@ layout: home
   <tbody>
     <tr>
       <td>Matches Played</td>
-      <td>1253</td>
+      <td>1255</td>
     </tr>
     <tr>
       <td>MMR Gained</td>
-      <td>11886</td>
+      <td>11911</td>
     </tr>
     <tr>
       <td>MMR lost</td>
-      <td>12115</td>
+      <td>12126</td>
     </tr>
     <tr>
       <td>Max MMR</td>
@@ -90,11 +90,11 @@ layout: home
       <td>149</td>
     </tr>
     <tr>
-      <td>Hunter</td>
+      <td>GhostDragon</td>
       <td>122</td>
     </tr>
     <tr>
-      <td>GhostDragon</td>
+      <td>Hunter</td>
       <td>122</td>
     </tr>
     <tr>
@@ -114,9 +114,9 @@ layout: home
 
 | Race    |   Wins |   Losses |   Total |   Win Rate (%) |   MMR Gained |   MMR Lost |
 |:--------|-------:|---------:|--------:|---------------:|-------------:|-----------:|
-| Protoss |    219 |      276 |     495 |        44.2424 |         3843 |       4970 |
+| Protoss |    220 |      276 |     496 |        44.3548 |         3868 |       4970 |
 | Terran  |    128 |      180 |     308 |        41.5584 |         3375 |       2485 |
-| Zerg    |    250 |      187 |     437 |        57.2082 |         3924 |       4075 |
+| Zerg    |    251 |      187 |     438 |        57.3059 |         3924 |       4086 |
 
 ![Games by Race](./assets/gm_hist.png)
 
