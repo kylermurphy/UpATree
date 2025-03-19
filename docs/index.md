@@ -18,7 +18,7 @@ layout: home
   <tbody>
     <tr>
       <td>Matches Played</td>
-      <td>1341</td>
+      <td>1342</td>
     </tr>
     <tr>
       <td>MMR Gained</td>
@@ -26,7 +26,7 @@ layout: home
     </tr>
     <tr>
       <td>MMR lost</td>
-      <td>12589</td>
+      <td>12603</td>
     </tr>
     <tr>
       <td>Max MMR</td>
@@ -78,12 +78,12 @@ layout: home
       <td>249</td>
     </tr>
     <tr>
-      <td>OriOn</td>
-      <td>157</td>
+      <td>theglml</td>
+      <td>167</td>
     </tr>
     <tr>
-      <td>theglml</td>
-      <td>153</td>
+      <td>OriOn</td>
+      <td>157</td>
     </tr>
     <tr>
       <td>Archaleon</td>
@@ -116,7 +116,7 @@ layout: home
 |:--------|-------:|---------:|--------:|---------------:|-------------:|-----------:|
 | Protoss |    235 |      311 |     546 |        43.0403 |         4230 |       5317 |
 | Terran  |    138 |      190 |     328 |        42.0732 |         3515 |       2656 |
-| Zerg    |    261 |      193 |     454 |        57.489  |         4199 |       4193 |
+| Zerg    |    262 |      193 |     455 |        57.5824 |         4199 |       4207 |
 
 ![Games by Race](./assets/gm_hist.png)
 
