@@ -18,7 +18,7 @@ layout: home
   <tbody>
     <tr>
       <td>Matches Played</td>
-      <td>1417</td>
+      <td>1419</td>
     </tr>
     <tr>
       <td>MMR Gained</td>
