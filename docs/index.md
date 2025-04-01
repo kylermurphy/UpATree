@@ -18,7 +18,7 @@ layout: home
   <tbody>
     <tr>
       <td>Matches Played</td>
-      <td>1660</td>
+      <td>1662</td>
     </tr>
     <tr>
       <td>MMR Gained</td>
@@ -26,7 +26,7 @@ layout: home
     </tr>
     <tr>
       <td>MMR lost</td>
-      <td>14273</td>
+      <td>14368</td>
     </tr>
     <tr>
       <td>Max MMR</td>
@@ -67,7 +67,7 @@ layout: home
   <tbody>
     <tr>
       <td>Kallari</td>
-      <td>321</td>
+      <td>391</td>
     </tr>
     <tr>
       <td>gaschem</td>
@@ -114,8 +114,8 @@ layout: home
 
 | Race    |   Wins |   Losses |   Total |   Win Rate (%) |   MMR Gained |   MMR Lost |
 |:--------|-------:|---------:|--------:|---------------:|-------------:|-----------:|
-| Protoss |    273 |      384 |     657 |        41.5525 |         4959 |       5962 |
-| Terran  |    185 |      228 |     413 |        44.7942 |         4100 |       3233 |
+| Protoss |    273 |      385 |     658 |        41.4894 |         4959 |       6032 |
+| Terran  |    185 |      229 |     414 |        44.686  |         4100 |       3258 |
 | Zerg    |    321 |      236 |     557 |        57.6302 |         4864 |       4767 |
 
 ![Games by Race](./assets/gm_hist.png)
