@@ -18,7 +18,7 @@ layout: home
   <tbody>
     <tr>
       <td>Matches Played</td>
-      <td>1703</td>
+      <td>1705</td>
     </tr>
     <tr>
       <td>MMR Gained</td>
@@ -26,7 +26,7 @@ layout: home
     </tr>
     <tr>
       <td>MMR lost</td>
-      <td>14796</td>
+      <td>14832</td>
     </tr>
     <tr>
       <td>Max MMR</td>
@@ -86,6 +86,10 @@ layout: home
       <td>157</td>
     </tr>
     <tr>
+      <td>TjaaXI</td>
+      <td>151</td>
+    </tr>
+    <tr>
       <td>Archaleon</td>
       <td>149</td>
     </tr>
@@ -96,10 +100,6 @@ layout: home
     <tr>
       <td>Hunter</td>
       <td>139</td>
-    </tr>
-    <tr>
-      <td>TjaaXI</td>
-      <td>136</td>
     </tr>
     <tr>
       <td>MaDFroG</td>
@@ -114,9 +114,9 @@ layout: home
 
 | Race    |   Wins |   Losses |   Total |   Win Rate (%) |   MMR Gained |   MMR Lost |
 |:--------|-------:|---------:|--------:|---------------:|-------------:|-----------:|
-| Protoss |    282 |      395 |     677 |        41.6544 |         5141 |       6175 |
+| Protoss |    282 |      396 |     678 |        41.5929 |         5141 |       6190 |
 | Terran  |    190 |      235 |     425 |        44.7059 |         4208 |       3383 |
-| Zerg    |    327 |      241 |     568 |        57.5704 |         4986 |       4830 |
+| Zerg    |    328 |      241 |     569 |        57.645  |         4986 |       4851 |
 
 ![Games by Race](./assets/gm_hist.png)
 
